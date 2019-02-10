@@ -1,0 +1,5 @@
+spring:
+  cloud:
+    config:
+      fail-fast: true
+      uri: ${JHIPSTER_REGISTRY_URL}/config
