@@ -32,8 +32,6 @@ Image docker postgresql
     password : password
     url : localhost:5432
 
-
-
     docker exec -it postgre_fg_matching bash
     su -  postgres
     psql postgres
