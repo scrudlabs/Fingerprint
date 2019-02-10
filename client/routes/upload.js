@@ -1,7 +1,10 @@
 const express = require('express');
 const multer = require('multer');
+<<<<<<< HEAD
 
 const request = require('request');
+=======
+>>>>>>> b1c578a... Client side
 const router = express.Router();
 
 const upload = multer({ dest: './uploads/' });
@@ -12,10 +15,13 @@ router.get('/upload', (req, res, next) => {
 
 router.post('/upload', upload.single('myFile'), (req, res) => {
   if (req.file) {
+<<<<<<< HEAD
     let objJsonStr = JSON.stringify(req.file);
     let objJsonB64 = Buffer.from(objJsonStr).toString('base64');
     console.log(objJsonB64);
 
+=======
+>>>>>>> b1c578a... Client side
     console.log('Uploading file...');
     var filename = req.file.filename;
     var uploadStatus = 'File Uploaded Successfully';
@@ -27,11 +33,15 @@ router.post('/upload', upload.single('myFile'), (req, res) => {
 
   /* ===== Add the function to save filename to database ===== */
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> b1c578a... Client side
   res.render('index.ejs', {
     status: uploadStatus,
     filename: `Name Of File: ${filename}`
   });
+<<<<<<< HEAD
 
   console.log('SUCCESS');
   // request.post('http://localhost:8084/api/storeUserFingerPrintInformations', {
@@ -64,6 +74,8 @@ router.post('/upload', upload.single('myFile'), (req, res) => {
     passportImage: 'toto'
   };
   req.write(reqBody);
+=======
+>>>>>>> b1c578a... Client side
 });
 
 module.exports = router;
