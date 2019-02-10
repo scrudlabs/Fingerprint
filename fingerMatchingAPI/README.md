@@ -26,7 +26,7 @@ Image docker postgresql
 
 	docker pull postgres
 
-	docker run --name postgre_fg_matching -p 5432:5432 -e POSTGRES_PASSWORD=password -d postgres
+	docker run --name fg_matching_postgresql -p 5432:5432 -e POSTGRES_PASSWORD=password --network="bridge" --hostname fg_matching_postgresql -d postgres
 
 	Vous pouvez vous connecter avec les infos ci-dessous:
 
@@ -40,8 +40,13 @@ Image docker postgresql
 	CREATE DATABASE fingerMatchingdb;
 	CREATE USER fg_matching_user WITH ENCRYPTED PASSWORD 'fg_matching_pwd';
 	GRANT ALL PRIVILEGES ON DATABASE fingerMatchingdb TO fg_matching_user;
-
 	
+	
+	
+
+Image docker fg_matching_api :
+	To build the docker Image : ./mvnw
+	docker run --name fg_matching_api -p 8084:8084 --network="bridge" fg_matching_api
 
 Test service :
 

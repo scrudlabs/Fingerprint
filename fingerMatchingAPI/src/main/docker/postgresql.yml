@@ -1,0 +1,9 @@
+version: '2'
+services:
+  fg_matching_postgresql:
+    image: postgres:9.6.2
+    environment:
+    - POSTGRES_USER=fg_matching_user
+    - POSTGRES_PASSWORD=fg_matching_pwd
+    ports:
+    - 5432:5432
