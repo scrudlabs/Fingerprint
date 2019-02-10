@@ -26,7 +26,7 @@ Image docker postgresql
 
 	docker pull postgres
 
-	docker run --name fg_matching_postgresql -p 5432:5432 -e POSTGRES_PASSWORD=password --network="bridge" --hostname fg_matching_postgresql -d postgres
+	docker run --name fg_matching_postgresql -p 5432:5432 -e POSTGRES_PASSWORD=password --network="bridge" -d postgres
 
 	Vous pouvez vous connecter avec les infos ci-dessous:
 
@@ -51,7 +51,7 @@ Image docker postgresql
 	
 
 Image docker fg_matching_api :
-	To build the docker Image : ./mvnw
+	To build the docker Image : ./mvnw -Dmaven.test.skip=true
 	docker run --name fg_matching_api -p 8084:8084 --network="bridge" fg_matching_api
 
 Test service :
