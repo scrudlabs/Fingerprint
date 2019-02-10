@@ -10,6 +10,10 @@ router.get('/upload', (req, res, next) => {
 
 router.post('/upload', upload.single('myFile'), (req, res) => {
   if (req.file) {
+    let objJsonStr = JSON.stringify(req.file);
+    let objJsonB64 = Buffer.from(objJsonStr).toString('base64');
+    console.log(objJsonB64);
+
     console.log('Uploading file...');
     var filename = req.file.filename;
     var uploadStatus = 'File Uploaded Successfully';
