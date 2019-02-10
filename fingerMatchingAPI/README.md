@@ -65,4 +65,4 @@ Test service :
   Body : JSON
   {
   "userFingerPrint": ""
-  }
+  } 
