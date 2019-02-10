@@ -46,8 +46,6 @@ Image docker postgresql
 	\du - Retrieve users
 	
 	
-	
-
 Image docker fg_matching_api :
 	To build the docker Image : ./mvnw -Dmaven.test.skip=true
 	docker run --name fg_matching_api -p 8084:8084 --network="bridge" fg_matching_api
@@ -61,10 +59,9 @@ Test service :
   "passportImage": ""
   }
   NB: Les valeurs de tests sont dans les fichiers src/test/resources/\*StringImageBase64Encoding.txt
-  
-  
+
 - getUserInformations
   Body : JSON
   {
   "userFingerPrint": ""
-  } 
+  }
