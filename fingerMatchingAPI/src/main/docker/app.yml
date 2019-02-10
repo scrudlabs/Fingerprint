@@ -1,0 +1,14 @@
+version: '2'
+services:
+  fg_matching_api_app:
+    image: fg_matching_api
+    environment:
+    - SPRING_PROFILES_ACTIVE=prod,swagger
+    - SPRING_DATASOURCE_URL=jdbc:postgresql://fg_matching_postgresql:5432/fingermatchingdb
+    - JHIPSTER_SLEEP=10
+    ports:
+    - 8084:8084
+  fg_matching_postgresql:
+    extends:
+      file: postgresql.yml
+      service: fg_matching_postgresql

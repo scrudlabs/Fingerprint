@@ -14,6 +14,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>fingerMatchingAPI</name>
 	<description>Demo project for Spring Boot</description>
+	<packaging>war</packaging>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -383,12 +384,11 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-tomcat</artifactId>
-				</exclusion>
-			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
 		</dependency>
 		<!-- Spring Cloud -->
 		<dependency>
@@ -464,7 +464,7 @@
 	</dependencies>
 
 	<build>
-		<defaultGoal>spring-boot:run</defaultGoal>
+		<defaultGoal>clean install docker:build</defaultGoal>
 		<testResources>
 			<testResource>
 				<directory>src/test/resources/</directory>
@@ -705,8 +705,9 @@
 				<artifactId>docker-maven-plugin</artifactId>
 				<version>${docker-maven-plugin.version}</version>
 				<configuration>
-					<imageName>fingermatching</imageName>
+					<imageName>fg_matching_api</imageName>
 					<dockerDirectory>src/main/docker</dockerDirectory>
+					<skipDocker>false</skipDocker>
 					<resources>
 						<resource>
 							<targetPath>/</targetPath>

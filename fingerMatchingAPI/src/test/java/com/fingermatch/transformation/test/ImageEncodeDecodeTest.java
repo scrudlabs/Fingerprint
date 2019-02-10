@@ -1,9 +1,11 @@
 package com.fingermatch.transformation.test;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 
 import org.apache.commons.io.IOUtils;
-import org.junit.Assert;
 import org.junit.Test;
 
 import com.fingermatch.utils.UtilBase64Image;
@@ -12,20 +14,20 @@ import com.machinezoo.noexception.Exceptions;
 public class ImageEncodeDecodeTest {
 	@Test
 	public void encodeProbe() {
-		byte[] image = load("probe.png");
-		System.out.println(UtilBase64Image.encoder(image));
+		String name = "probe.png";
+		writeFile(UtilBase64Image.encoder(load(name)), name);
 	}
-	
+
 	@Test
 	public void encodeMatching() {
-		byte[] image = load("matching.png");
-		System.out.println(UtilBase64Image.encoder(image));
+		String name = "matching.png";
+		writeFile(UtilBase64Image.encoder(load(name)), name);
 	}
-	
+
 	@Test
 	public void encodeNonMatching() {
-		byte[] image = load("nonmatching.png");
-		System.out.println(UtilBase64Image.encoder(image));
+		String name = "nonmatching.png";
+		writeFile(UtilBase64Image.encoder(load(name)), name);
 	}
 
 	private static byte[] load(String name) {
@@ -34,5 +36,15 @@ public class ImageEncodeDecodeTest {
 				return IOUtils.toByteArray(input);
 			}
 		});
+	}
+
+	private static void writeFile(String content, String name) {
+		try (OutputStream out = new FileOutputStream("src/test/resources/" + name + "StringImageBase64Encoding.txt")) {
+
+			out.write(content.getBytes());
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }
