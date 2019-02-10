@@ -33,7 +33,7 @@ Image docker postgresql
 	url : localhost:5432
 	
 	
-	docker exec -it fg_matching_postgresql bash
+	docker exec -it fg_matching_postgresql bash 
     su -  postgres
     psql postgres
 
@@ -61,6 +61,8 @@ Test service :
   "passportImage": ""
   }
   NB: Les valeurs de tests sont dans les fichiers src/test/resources/\*StringImageBase64Encoding.txt
+  
+  
 - getUserInformations
   Body : JSON
   {
