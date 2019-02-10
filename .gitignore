@@ -24,4 +24,8 @@
 /.nb-gradle/
 /build/
 /node_modules/
+<<<<<<< HEAD
 node_modules
+=======
+node_modules
+>>>>>>> 1eed31c... cleab
