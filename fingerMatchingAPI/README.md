@@ -33,13 +33,19 @@ Image docker postgresql
 	user : postgres
 	password : password
 	url : localhost:5432
+	
+	
+	docker exec -it fg_matching_postgresql bash
+    su -  postgres
+    psql postgres
 
-	
-	-- Créer la base de données et le user 
-	
+	-- Créer la base de données et le user
 	CREATE DATABASE fingerMatchingdb;
 	CREATE USER fg_matching_user WITH ENCRYPTED PASSWORD 'fg_matching_pwd';
 	GRANT ALL PRIVILEGES ON DATABASE fingerMatchingdb TO fg_matching_user;
+	
+	\dn - Retrieve tables
+	\du - Retrieve users
 	
 	
 	
