@@ -1,0 +1,81 @@
+swagger: '2.0'
+info:
+  description: API documentation
+  version: 0.0.1
+  title: Application API
+  contact: {
+    }
+host: localhost:8084
+basePath: /
+tags:
+- name: finger-print-matcher-rest
+  description: Finger Print Matcher Rest
+paths:
+  /api/getUserInformations:
+    get:
+      tags:
+      - finger-print-matcher-rest
+      summary: getUserInfoWithFingerPrintImage
+      operationId: getUserInfoWithFingerPrintImageUsingGET
+      consumes:
+      - application/json
+      produces:
+      - application/json;charset=UTF-8
+      - text/plain
+      parameters:
+      - in: body
+        name: userFingerPrint
+        description: userFingerPrint
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /api/storeUserFingerPrintInformations:
+    post:
+      tags:
+      - finger-print-matcher-rest
+      summary: storeFingerPrintInDatabase
+      operationId: storeFingerPrintInDatabaseUsingPOST
+      consumes:
+      - application/json
+      produces:
+      - application/json;charset=UTF-8
+      - text/plain
+      parameters:
+      - in: body
+        name: userElectronicId
+        description: userElectronicId
+        required: true
+        schema:
+          $ref: '#/definitions/UserElectronicIdDTO'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+definitions:
+  UserElectronicIdDTO:
+    type: object
+    properties:
+      fingerPrintImage:
+        type: string
+      passportImage:
+        type: string

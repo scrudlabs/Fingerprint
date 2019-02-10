@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+	<property name="now" value="now()" dbms="h2" />
+	<property name="now" value="current_timestamp"
+		dbms="postgresql" />
+
+	<changeSet id="00000000000000" author="abdel">
+		<createSequence sequenceName="hibernate_sequence"
+			startValue="1000" incrementBy="50" />
+	</changeSet>
+
+	<changeSet id="00000000000001" author="abdel">
+		<createTable tableName="user_infos">
+			<column name="id" type="bigint"
+				autoIncrement="${autoIncrement}">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="finger_print_image" type="bytea">
+				<constraints nullable="false" />
+			</column>
+			<column name="passport_image" type="bytea">
+				<constraints nullable="false" />
+			</column>
+			<column name="created_date" type="timestamp"
+				defaultValueDate="${now}">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet id="00000000000003" author="abdel">
+		<createSequence sequenceName="user_infos_seq"
+			startValue="1000" incrementBy="50" />
+	</changeSet>
+</databaseChangeLog>
