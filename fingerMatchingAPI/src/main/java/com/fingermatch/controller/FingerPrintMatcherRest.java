@@ -56,7 +56,7 @@ public class FingerPrintMatcherRest {
 			}
 		}
 
-		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		return new ResponseEntity<>("NO CONTENT", HttpStatus.NO_CONTENT);
 	}
 
 	@GetMapping(path = "/getUserInformations", produces = { MediaType.APPLICATION_JSON_UTF8_VALUE,
