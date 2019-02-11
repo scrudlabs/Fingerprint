@@ -6,4 +6,4 @@ services:
     - POSTGRES_USER=fg_matching_user
     - POSTGRES_PASSWORD=fg_matching_pwd
     ports:
-    - 5432:5432
+    - 9111:9111
