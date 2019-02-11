@@ -13,7 +13,7 @@ spring:
     serialization.indent_output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:postgresql://localhost:5432/fingermatchingdb
+    url: jdbc:postgresql://ec2-3-90-168-153.compute-1.amazonaws.com:5432/fingermatchingdb
     username: fg_matching_user
     password: fg_matching_pwd
   jpa:
