@@ -9,6 +9,11 @@ public class UserElectronicIdDTO {
 	public UserElectronicIdDTO() {
 	}
 
+	public UserElectronicIdDTO(String fingerPrintImagecoder, String passportImage) {
+		this.fingerPrintImage = fingerPrintImagecoder;
+		this.passportImage = passportImage;
+	}
+
 	/**
 	 * @return the fingerPrintImage
 	 */
