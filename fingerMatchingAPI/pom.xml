@@ -428,6 +428,11 @@
 			<version>3.0.19.Final</version>
 			<scope>provided</scope>
 		</dependency>
+		
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
 
 
 		<dependency>

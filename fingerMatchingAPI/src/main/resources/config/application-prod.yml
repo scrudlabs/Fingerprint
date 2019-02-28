@@ -15,7 +15,7 @@ spring:
     serialization.indent_output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:postgresql://172.17.0.3:5432/fingermatchingdb
+    url: jdbc:postgresql://localhost:9111/fingermatchingdb
     username: fg_matching_user
     password: fg_matching_pwd
   jpa:
@@ -28,6 +28,8 @@ spring:
       hibernate.cache.use_query_cache: false
       hibernate.generate_statistics: true
       hibernate.cache.region.factory_class: org.hibernate.cache.ehcache.EhCacheRegionFactory
+  messages:
+    basename: i18n/messages
 jhipster:
   http:
     version: V_1_1
