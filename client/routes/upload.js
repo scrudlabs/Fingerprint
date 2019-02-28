@@ -1,15 +1,10 @@
 const express = require('express');
 const multer = require('multer');
+
 const request = require('request');
 const router = express.Router();
 
 const upload = multer({ dest: './uploads/' });
-
-// var print = {
-//   fingerPrintImage:
-//     'eyJmaWVsZG5hbWUiOiJteUZpbGUiLCJvcmlnaW5hbG5hbWUiOiJuYW1la0xvZ28uanBnIiwiZW5jb2RpbmciOiI3Yml0IiwibWltZXR5cGUiOiJpbWFnZS9qcGVnIiwiZGVzdGluYXRpb24iOiIuL3VwbG9hZHMvIiwiZmlsZW5hbWUiOiIwNzdjNWYyYjNiNDkxYmIxNDMzMjNlYTBlM2Q2ZGMwMiIsInBhdGgiOiJ1cGxvYWRzLzA3N2M1ZjJiM2I0OTFiYjE0MzMyM2VhMGUzZDZkYzAyIiwic2l6ZSI6MzExMTV9',
-//   passportImage: 'toto'
-// };
 
 router.get('/upload', (req, res, next) => {
   res.render('upload');
@@ -32,10 +27,12 @@ router.post('/upload', upload.single('myFile'), (req, res) => {
 
   /* ===== Add the function to save filename to database ===== */
 
-  // res.render('index.ejs', {
-  //   status: uploadStatus,
-  //   filename: `Name Of File: ${filename}`
-  // });
+
+  res.render('index.ejs', {
+    status: uploadStatus,
+    filename: `Name Of File: ${filename}`
+  });
+
   console.log('SUCCESS');
   // request.post('http://localhost:8084/api/storeUserFingerPrintInformations', {
   //   json: {

@@ -4,7 +4,7 @@ services:
     image: fg_matching_api
     environment:
     - SPRING_PROFILES_ACTIVE=prod,swagger
-    - SPRING_DATASOURCE_URL=jdbc:postgresql://172.17.0.3:5432/fingermatchingdb
+    - SPRING_DATASOURCE_URL=jdbc:postgresql://ec2-3-90-168-153.compute-1.amazonaws.com:9111/fingermatchingdb
     - JHIPSTER_SLEEP=10
     ports:
     - 8084:8084

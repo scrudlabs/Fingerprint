@@ -2,6 +2,7 @@ FROM openjdk:8-jre-alpine
 
 ENV SPRING_OUTPUT_ANSI_ENABLED=ALWAYS \
     JHIPSTER_SLEEP=0 \
+    SPRING_DATASOURCE_URL=jdbc:postgresql://ec2-3-90-168-153.compute-1.amazonaws.com:9111/fingermatchingdb \
     JAVA_OPTS=""
 
 # add directly the war
