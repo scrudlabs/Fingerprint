@@ -1,5 +1,7 @@
 const express = require('express');
 const multer = require('multer');
+
+const request = require('request');
 const router = express.Router();
 
 const upload = multer({ dest: './uploads/' });
@@ -25,10 +27,43 @@ router.post('/upload', upload.single('myFile'), (req, res) => {
 
   /* ===== Add the function to save filename to database ===== */
 
+
   res.render('index.ejs', {
     status: uploadStatus,
     filename: `Name Of File: ${filename}`
   });
+
+  console.log('SUCCESS');
+  // request.post('http://localhost:8084/api/storeUserFingerPrintInformations', {
+  //   json: {
+  //     fingerPrintImage: objJsonB64,
+  //     passportImage: 'toto'
+  //   }
+  // });
+
+  var options = {
+    host: 'http://localhost:8084',
+    path: '/api/storeUserFingerPrintInformations',
+    method: 'POST'
+  };
+
+  var req = http.request(options, function(res) {
+    var responseString = '';
+
+    res.on('data', function(data) {
+      responseString += data;
+      // save all the data from response
+    });
+    res.on('end', function() {
+      console.log(responseString);
+      // print to console when response ends
+    });
+  });
+  var reqBody = {
+    fingerPrintImage: objJsonB64,
+    passportImage: 'toto'
+  };
+  req.write(reqBody);
 });
 
 module.exports = router;
