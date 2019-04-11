@@ -45,7 +45,7 @@ export class Home extends React.Component {
 
     render() {
         const { classes, posts, commsInfo } = this.props;
-        const { comms } = this.state;
+        // const { comms } = this.state;
 
         // for (var post in posts) { 
         //     this.props.getAllComms(post.id);
