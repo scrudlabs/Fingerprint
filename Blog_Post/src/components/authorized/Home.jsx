@@ -14,7 +14,7 @@ import Paper from '@material-ui/core/Paper';
 
 import { Link } from "react-router-dom";
 
-import { getAllPosts } from '../../actions/blog';
+import { getAllPosts, getAllComms } from '../../actions/blog';
 
 
 //styles
@@ -35,12 +35,22 @@ export class Home extends React.Component {
     constructor(props) {
         super(props);
         this.props.getAllPosts();
+        this.state = {
+            comms: [],
+        };
+        
     }
 
 
 
     render() {
-        const { classes, posts } = this.props;
+        const { classes, posts, commsInfo } = this.props;
+        const { comms } = this.state;
+
+        for (var post in posts) { 
+            this.props.getAllComms(post.id);
+            comms.push(commsInfo.length);
+        };
 
         return (
             <React.Fragment>
@@ -54,16 +64,21 @@ export class Home extends React.Component {
                                     <TableRow>
                                         <TableCell>Id</TableCell>
                                         <TableCell>Title</TableCell>
+                                        <TableCell>Comments' Number</TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
-                                    {posts.map(post =>
+                                    {posts.map((post, index) =>
+                                        
                                         <TableRow key={post.id}>
                                             <TableCell component="th" scope="row">
-                                                <Link to={`/app/post/${post.id}`} style={{ textDecoration: 'none', color: '#000' }}>{post.id}</Link>
+                                                <Link to={`/post/${post.id}`} style={{ textDecoration: 'none', color: '#000' }}>{post.id}</Link>
                                             </TableCell>
                                             <TableCell>
-                                                <Link to={`/app/post/${post.id}`} style={{ textDecoration: 'none', color: '#000' }}>{post.title}</Link>
+                                                <Link to={`/post/${post.id}`} style={{ textDecoration: 'none', color: '#000' }}>{post.title}</Link>
+                                            </TableCell>
+                                            <TableCell>
+                                                <Link to={`/post/${post.id}`} style={{ textDecoration: 'none', color: '#000' }}>{comms[index]}</Link>
                                             </TableCell>
                                         </TableRow>
                                     )}
@@ -81,10 +96,11 @@ export class Home extends React.Component {
 function mapStateToProps(state) {
     return {
         posts: state.allPosts.posts,
+        commsInfo: state.commsInformations.info,
     }
 };
 
 export default connect(
     mapStateToProps,
-    { getAllPosts }
+    { getAllPosts, getAllComms }
 )(withStyles(styles)(Home));
