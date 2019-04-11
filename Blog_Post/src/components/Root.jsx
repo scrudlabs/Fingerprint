@@ -14,7 +14,7 @@ class Root extends React.Component {
                 <CssBaseline />
                 <Switch>
                     <Route path="/" component={AuthorizedLayout} />
-                    <Redirect to="/" />
+                    <Redirect to="/home" />
                 </Switch>
             </MuiThemeProvider>
         )
