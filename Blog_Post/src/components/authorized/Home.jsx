@@ -47,10 +47,10 @@ export class Home extends React.Component {
         const { classes, posts, commsInfo } = this.props;
         const { comms } = this.state;
 
-        for (var post in posts) { 
-            this.props.getAllComms(post.id);
-            comms.push(commsInfo.length);
-        };
+        // for (var post in posts) { 
+        //     this.props.getAllComms(post.id);
+        //     comms.push(commsInfo.length);
+        // };
 
         return (
             <React.Fragment>
@@ -77,9 +77,9 @@ export class Home extends React.Component {
                                             <TableCell>
                                                 <Link to={`/post/${post.id}`} style={{ textDecoration: 'none', color: '#000' }}>{post.title}</Link>
                                             </TableCell>
-                                            <TableCell>
+                                            {/* <TableCell>
                                                 <Link to={`/post/${post.id}`} style={{ textDecoration: 'none', color: '#000' }}>{comms[index]}</Link>
-                                            </TableCell>
+                                            </TableCell> */}
                                         </TableRow>
                                     )}
                                 </TableBody>
