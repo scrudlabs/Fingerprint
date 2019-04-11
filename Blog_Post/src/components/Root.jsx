@@ -13,8 +13,8 @@ class Root extends React.Component {
             <MuiThemeProvider theme={theme}>
                 <CssBaseline />
                 <Switch>
-                    <Route path="/app" component={AuthorizedLayout} />
-                    <Redirect to="/app" />
+                    <Route path="/" component={AuthorizedLayout} />
+                    <Redirect to="/" />
                 </Switch>
             </MuiThemeProvider>
         )
