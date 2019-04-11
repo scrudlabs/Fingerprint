@@ -5,13 +5,10 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 
 
-import { getPostInfos, getUserInfos } from '../../actions/blog';
+import { getUserInfos } from '../../actions/blog';
 import Card from "../common/card/Card.jsx";
 import CardHeader from "../common/card/CardHeader.jsx";
 import CardBody from "../common/card/CardBody.jsx";
-import CardFooter from "../common/card/CardFooter.jsx";
-import { Link } from "react-router-dom";
-import Divider from '@material-ui/core/Divider';
 
 
 //styles

@@ -58,7 +58,7 @@ export class Post extends React.Component {
                                 <h4 className={classes.cardTitleWhite}>
                                     {info.title}<br /><br /><br />
                                     <Divider /><br />
-                                    Written by <Link to={`/app/users/${userInfo.id}`} style={{ textDecoration: 'none', color: '#FFF' }}>{userInfo.name}</Link>
+                                    Written by <Link to={`/users/${userInfo.id}`} style={{ textDecoration: 'none', color: '#FFF' }}>{userInfo.name}</Link>
                                 </h4>
 
                             </CardHeader>
