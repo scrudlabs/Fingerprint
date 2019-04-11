@@ -14,10 +14,10 @@ class AuthorizedLayout extends React.Component {
             <React.Fragment>
                 <NavBar />
                 <Switch>
-                    <Route path={`${this.props.match.path}/home`} component={Home} />
-                    <Route path={`${this.props.match.path}/post/:id`} component={Post} />
-                    <Route path={`${this.props.match.path}/users/:id`} component={User} />
-                    <Redirect to={`${this.props.match.path}/home`} />
+                    <Route path={`home`} component={Home} />
+                    <Route path={`post/:id`} component={Post} />
+                    <Route path={`users/:id`} component={User} />
+                    <Redirect to={`home`} />
                 </Switch>
             </React.Fragment>
         )
