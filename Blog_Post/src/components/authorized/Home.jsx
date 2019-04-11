@@ -64,7 +64,7 @@ export class Home extends React.Component {
                                     <TableRow>
                                         <TableCell>Id</TableCell>
                                         <TableCell>Title</TableCell>
-                                        <TableCell>Comments' Number</TableCell>
+                                        {/* <TableCell>Comments' Number</TableCell> */}
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
