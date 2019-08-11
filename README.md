@@ -1,6 +1,6 @@
 # Fingerprint Recongnition
 
-Simple Fingerprint Recongnition algo implementation
+Simple Fingerprint Recognition algo implementation
 
 # Client
 
